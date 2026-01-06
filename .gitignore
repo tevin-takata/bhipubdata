@@ -1,1 +1,4 @@
 data-extraction/data/dblp.xml
+data/citation/DBLP-Citation-network-V18.jsonl
+data/extraction/dblp.dtd
+data/extraction/dblp.xml
