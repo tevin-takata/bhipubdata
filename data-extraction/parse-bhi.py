@@ -56,14 +56,14 @@ def extract_feature(elem, features, include_key=False):
             attribs[sub.tag] = attribs.get(sub.tag) + [text]
     return attribs
 
-def parse_titb(dblp_path, save_path, save_to_csv=False, include_key=True):
-    type_name = ['article']  # Assuming "journals/titb" publications are in "article"
+def parse_bhi(dblp_path, save_path, save_to_csv=False, include_key=True):
+    type_name = ['inproceedings']  # Assuming "conf/bhi" publications are in "inproceedings"
     features = ['title', 'author', 'year', 'ee']  # Properties to extract
 
-    def is_titb_publication(key):
-        return key.lower().startswith('journals/titb')
+    def is_bhi_publication(key):
+        return key.lower().startswith('conf/bhi')
 
-    def parse_entity_titb(dblp_path, save_path, type_name, features=None, save_to_csv=False, include_key=False):
+    def parse_entity_bhi(dblp_path, save_path, type_name, features=None, save_to_csv=False, include_key=False):
         print("PROCESS: Start parsing for {}...".format(str(type_name)))
         assert features is not None, "features must be assigned before parsing the dblp dataset"
         results = []
@@ -84,7 +84,7 @@ def parse_titb(dblp_path, save_path, save_to_csv=False, include_key=True):
             if elem.tag in type_name:
                 attrib_values = extract_feature(elem, features, include_key)  # extract required features
                 key = attrib_values['key'][0]
-                if is_titb_publication(key):
+                if is_bhi_publication(key):
                     results.append(attrib_values)  # add record to results array
                     for key, value in attrib_values.items():
                         attrib_count[key] = attrib_count.get(key, 0) + len(value)
@@ -102,20 +102,20 @@ def parse_titb(dblp_path, save_path, save_to_csv=False, include_key=True):
             ujson.dump(results, f)
         return full_entity, part_entity, attrib_count
 
-    info = parse_entity_titb(dblp_path, save_path, type_name, features, save_to_csv=save_to_csv, include_key=include_key)
-    print('Total TITB publications found: {}, publications contain all features: {}, publications contain part of features: {}'
+    info = parse_entity_bhi(dblp_path, save_path, type_name, features, save_to_csv=save_to_csv, include_key=include_key)
+    print('Total BHI publications found: {}, publications contain all features: {}, publications contain part of features: {}'
             .format(info[0] + info[1], info[0], info[1]))
     print("Features information: {}".format(str(info[2])))
 
-dblp_path = 'data/dblp.xml'
-save_path = 'data/titb_publications.json'
+dblp_path = '../data/extraction/dblp.xml'
+save_path = '../data/extraction/bhi_publications.json'
 try:
     context_iter(dblp_path)
     print("LOG: Successfully loaded \"{}\".".format(dblp_path))
 except IOError:
     print("ERROR: Failed to load file \"{}\". Please check your XML and DTD files.".format(dblp_path))
 
-parse_titb(dblp_path, save_path, save_to_csv=False)
+parse_bhi(dblp_path, save_path, save_to_csv=False)
 print("DONE")
 
 
