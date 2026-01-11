@@ -3,7 +3,7 @@
 This repository is dedicated to the extraction and processing of publication data from the following sources:
 
 - **International Conference on Biomedical and Health Informatics (BHI)**
-- **IEEE Journal of Biomedical and Health Informatics (T-ITB)**
+- **IEEE Journal of Biomedical and Health Informatics (T-ITB)** now **(J-BHI)**
 
 ## Purpose
 
