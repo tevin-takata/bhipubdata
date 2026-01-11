@@ -3,7 +3,7 @@ from tqdm import tqdm
 import requests
 
 titb_publications_path = "data/extraction/titb_publications.json"
-output_path = "data/titbpubdata.json"
+output_path = "titbpubdata.json"
 
 def load_titb_publications(path):
     with open(path, "r") as file:

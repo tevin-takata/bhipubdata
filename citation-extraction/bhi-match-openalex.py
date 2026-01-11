@@ -3,7 +3,7 @@ from tqdm import tqdm
 import requests
 
 bhi_publications_path = "data/extraction/bhi_publications.json"
-output_path = "data/bhipubdata.json"
+output_path = "bhipubdata.json"
 
 def load_bhi_publications(path):
     with open(path, "r") as file:
