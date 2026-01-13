@@ -42,7 +42,7 @@ Each file contains an array of objects, where each object represents a publicati
 - **Matched**: 5766
 - **Unmatched**: 22
 
-![Figure 1 of BHIPubData publication](figure/figure1.png)
+![Figure 1 of BHIPubData publication](figure/figure1.png "Line graph of BHI and TITB publications over years")
 
 ## Acknowledgments
 - Data sources: BHI, T-ITB, OpenAlex, and DBLP.
