@@ -42,6 +42,8 @@ Each file contains an array of objects, where each object represents a publicati
 - **Matched**: 5766
 - **Unmatched**: 22
 
+![Figure 1 of BHIPubData publication](figure/figure1.png)
+
 ## Acknowledgments
 - Data sources: BHI, T-ITB, OpenAlex, and DBLP.
 - Tools: Python, Jupyter, and related libraries.
